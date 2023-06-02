@@ -1,15 +1,7 @@
 import navBar from "./components/navbar";
 import "./App.css";
+import { getAllWords } from "./apiCall/apiCall";
 export default function Home() {
-  const getAllWords = async () => {
-    const url = "http://localhost:3001/api/v1/thai_words";
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error("Unable To Fetch Your Word. Try Later.");
-    }
-    return response.json();
-  };
-
   const fetchData = async () => {
     const data = await getAllWords();
     console.log(data);
