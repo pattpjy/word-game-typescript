@@ -1,6 +1,21 @@
 import navBar from "./components/navbar";
 import "./App.css";
 export default function Home() {
+  const getAllWords = async () => {
+    const url = "http://localhost:3001/api/v1/thai_words";
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Unable To Fetch Your Word. Try Later.");
+    }
+    return response.json();
+  };
+
+  const fetchData = async () => {
+    const data = await getAllWords();
+    console.log(data);
+  };
+
+  fetchData();
   const playWord = (src: string) => {
     const audio = new Audio(src);
     audio.play();
@@ -9,6 +24,7 @@ export default function Home() {
     <>
       <main className="main">
         {navBar()}
+
         <h1>
           <title>Learn Words Game</title>
           <meta name="description" content="Learning word in new language" />
