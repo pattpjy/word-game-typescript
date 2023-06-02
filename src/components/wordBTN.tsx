@@ -1,16 +1,25 @@
-export default function wordBtn(): React.ReactNode {
+//function to create wordBTn
+import React from "react";
+interface WordBtnProps {
+  id: number;
+  imgSrc: string;
+  audioSrc: string;
+  word: string;
+  categories: string;
+}
+export const WordBtn: React.FC<WordBtnProps> = ({
+  id,
+  audioSrc,
+  imgSrc,
+  word,
+}) => {
   const playWord = (src: string) => {
     const audio = new Audio(src);
     audio.play();
   };
   return (
-    <button onClick={() => playWord("./src/assets/audio/tree.mp3")}>
-      <img
-        src="https://images.unsplash.com/photo-1502082553048-f009c37129b9"
-        width={200}
-        height={150}
-        alt="tree"
-      />
+    <button id={id.toString()} onClick={() => playWord(audioSrc)}>
+      <img src={imgSrc} alt={word} className="word-img " />
     </button>
   );
-}
+};

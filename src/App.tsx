@@ -1,22 +1,47 @@
 import navBar from "./components/navbar";
 import "./App.css";
 import { getAllWords } from "./apiCall/apiCall";
+import React, { useState, useEffect } from "react";
+import { WordBtn } from "./components/wordBTN";
+
 export default function Home() {
+  interface WordData {
+    id: number;
+    img_url: string;
+    audio_url: string;
+    word: string;
+    categories: string;
+  }
+  const [allWords, setAllWords] = useState<WordData[]>([]);
+
   const fetchData = async () => {
     const data = await getAllWords();
-    console.log(data);
+    setAllWords(data);
   };
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  fetchData();
-  const playWord = (src: string) => {
-    const audio = new Audio(src);
-    audio.play();
+  //need function to map over data and display word
+  const displayWord = () => {
+    const mappedData = allWords.map((el: WordData) => {
+      return (
+        <WordBtn
+          key={el.id}
+          id={el.id}
+          imgSrc={el.img_url}
+          audioSrc={el.audio_url}
+          word={el.word}
+          categories={el.categories}
+        />
+      );
+    });
+    return mappedData;
   };
   return (
     <>
       <main className="main">
         {navBar()}
-
         <h1>
           <title>Learn Words Game</title>
           <meta name="description" content="Learning word in new language" />
@@ -27,32 +52,7 @@ export default function Home() {
           <p>Hello, Maddie. Let's learn new Thai words</p>
           <p>play the word by clicking on the images</p>
         </div>
-        <div className="word-board">
-          <button onClick={() => playWord("./src/assets/audio/tree.mp3")}>
-            <img
-              src="https://images.unsplash.com/photo-1502082553048-f009c37129b9"
-              width={200}
-              height={150}
-              alt="tree"
-            />
-          </button>
-          <button onClick={() => playWord("./src/assets/audio/apple.mp3")}>
-            <img
-              src="https://images.unsplash.com/photo-1579613832125-5d34a13ffe2a"
-              width={200}
-              height={150}
-              alt="apple"
-            />
-          </button>
-          <button onClick={() => playWord("./src/assets/audio/car.mp3")}>
-            <img
-              src="https://images.unsplash.com/photo-1489824904134-891ab64532f1"
-              width={200}
-              height={150}
-              alt="car"
-            />
-          </button>
-        </div>
+        <div className="word-board">{displayWord()}</div>
       </main>
     </>
   );
