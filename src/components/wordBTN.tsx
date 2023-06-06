@@ -1,25 +1,27 @@
-//function to create wordBTn
+//the presentational component, receives the props and handles the UI rendering. It displays a button with an image inside, and when the button is clicked, it triggers the onClick function passed as a prop.
 import React from "react";
 interface WordBtnProps {
   id: number;
   imgSrc: string;
   audioSrc: string;
   word: string;
-  categories: string;
+  onClick: (src: string) => void;
 }
 export const WordBtn: React.FC<WordBtnProps> = ({
   id,
-  audioSrc,
   imgSrc,
+  audioSrc,
   word,
+  onClick,
 }) => {
-  const playWord = (src: string) => {
-    const audio = new Audio(src);
-    audio.play();
-  };
   return (
-    <button id={id.toString()} onClick={() => playWord(audioSrc)}>
-      <img src={imgSrc} alt={word} className="word-img " />
+    <button onClick={() => onClick(audioSrc)}>
+      <img
+        id={id.toString()}
+        src={imgSrc}
+        alt={word}
+        className="word-btn-img"
+      />
     </button>
   );
 };

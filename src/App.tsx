@@ -2,7 +2,7 @@ import navBar from "./components/navbar";
 import "./App.css";
 import { getAllWords } from "./apiCall/apiCall";
 import React, { useState, useEffect } from "react";
-import { WordBtn } from "./components/wordBTN";
+import { WordBtnContainer } from "./containers/wordBtnContainer";
 
 export default function Home() {
   interface WordData {
@@ -26,7 +26,7 @@ export default function Home() {
   const displayWord = () => {
     const mappedData = allWords.map((el: WordData) => {
       return (
-        <WordBtn
+        <WordBtnContainer
           key={el.id}
           id={el.id}
           imgSrc={el.img_url}
