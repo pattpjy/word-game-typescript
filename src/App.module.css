@@ -4,10 +4,14 @@
   padding: 2rem;
   text-align: center;
   display: flex;
+  flex-direction: column;
+}
+
+.App {
+  display: flex;
   flex-direction: row;
 }
-.word-img {
-  width: 200px;
-  height: 150px;
-  object-fit: cover;
+.word-board {
+  display: grid;
+  grid-template-columns: 3;
 }

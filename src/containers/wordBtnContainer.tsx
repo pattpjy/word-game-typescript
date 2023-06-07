@@ -1,7 +1,7 @@
 //the container component responsible for managing the logic and state associated with the WordBtn component.
 
 import React from "react";
-import { WordBtn } from "../components/wordBTN";
+import { WordBtn } from "../components/WordBTN/wordBTN";
 
 interface WordBtnContainerProps {
   id: number;

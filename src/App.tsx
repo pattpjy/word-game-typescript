@@ -1,5 +1,5 @@
 import { NavBarContainer } from "./containers/NavBarContainer";
-import "./App.css";
+import styles from "./App.module.css";
 import { getAllWords } from "./apiCall/apiCall";
 import { useState, useEffect } from "react";
 import { WordBtnContainer } from "./containers/wordBtnContainer";
@@ -22,7 +22,6 @@ export default function Home() {
     fetchData();
   }, []);
 
-  //need function to map over data and display word
   const displayWord = () => {
     const mappedData = allWords.map((el: WordData) => {
       return (
@@ -39,9 +38,9 @@ export default function Home() {
     return mappedData;
   };
   return (
-    <>
-      <main className="main">
-        <NavBarContainer />
+    <div className={styles.App}>
+      <NavBarContainer />
+      <main className={styles.main}>
         <h1>
           <title>Learn Words Game</title>
           <meta name="description" content="Learning word in new language" />
@@ -52,8 +51,8 @@ export default function Home() {
           <p>Hello, Maddie. Let's learn new Thai words</p>
           <p>play the word by clicking on the images</p>
         </div>
-        <div className="word-board">{displayWord()}</div>
+        <div className={styles["word-board"]}>{displayWord()}</div>
       </main>
-    </>
+    </div>
   );
 }
