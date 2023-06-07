@@ -1,0 +1,17 @@
+.main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.App {
+  display: flex;
+  flex-direction: row;
+}
+.word-board {
+  display: grid;
+  grid-template-columns: 3;
+}

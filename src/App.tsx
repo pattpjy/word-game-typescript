@@ -1,53 +1,58 @@
-export default function Home() {
-  const playWord = (src: string) => {
-    const audio = new Audio(src);
+import { NavBarContainer } from "./containers/NavBarContainer";
+import styles from "./App.module.css";
+import { getAllWords } from "./apiCall/apiCall";
+import { useState, useEffect } from "react";
+import { WordBtnContainer } from "./containers/wordBtnContainer";
 
-    console.log("audio", audio);
-    audio.play();
+export default function Home() {
+  interface WordData {
+    id: number;
+    img_url: string;
+    audio_url: string;
+    word: string;
+    categories: string;
+  }
+  const [allWords, setAllWords] = useState<WordData[]>([]);
+
+  const fetchData = async () => {
+    const data = await getAllWords();
+    setAllWords(data);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const displayWord = () => {
+    const mappedData = allWords.map((el: WordData) => {
+      return (
+        <WordBtnContainer
+          key={el.id}
+          id={el.id}
+          imgSrc={el.img_url}
+          audioSrc={el.audio_url}
+          word={el.word}
+          categories={el.categories}
+        />
+      );
+    });
+    return mappedData;
   };
   return (
-    <>
-      <h1>
-        <title>Learn Words Game</title>
-        <meta name="description" content="Learning word in new language" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </h1>
-      <main>
+    <div className={styles.App}>
+      <NavBarContainer />
+      <main className={styles.main}>
+        <h1>
+          <title>Learn Words Game</title>
+          <meta name="description" content="Learning word in new language" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="icon" href="/favicon.ico" />
+        </h1>
         <div>
           <p>Hello, Maddie. Let's learn new Thai words</p>
-        </div>
-        <div>
           <p>play the word by clicking on the images</p>
         </div>
-        <div>
-          <button onClick={() => playWord("./src/assets/audio/tree.mp3")}>
-            <img
-              src="https://images.unsplash.com/photo-1502082553048-f009c37129b9"
-              width={200}
-              height={150}
-              alt="tree"
-            />
-          </button>
-
-          <button onClick={() => playWord("./src/assets/audio/apple-word.mp3")}>
-            <img
-              src="https://images.unsplash.com/photo-1579613832125-5d34a13ffe2a"
-              width={200}
-              height={150}
-              alt="apple"
-            />
-          </button>
-          <button onClick={() => playWord("./src/assets/audio/car.mp3")}>
-            <img
-              src="https://images.unsplash.com/photo-1489824904134-891ab64532f1"
-              width={200}
-              height={150}
-              alt="car"
-            />
-          </button>
-        </div>
+        <div className={styles["word-board"]}>{displayWord()}</div>
       </main>
-    </>
+    </div>
   );
 }
