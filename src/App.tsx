@@ -1,7 +1,7 @@
-import navBar from "./components/navbar";
+import { NavBarContainer } from "./containers/NavBarContainer";
 import "./App.css";
 import { getAllWords } from "./apiCall/apiCall";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { WordBtnContainer } from "./containers/wordBtnContainer";
 
 export default function Home() {
@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <>
       <main className="main">
-        {navBar()}
+        <NavBarContainer />
         <h1>
           <title>Learn Words Game</title>
           <meta name="description" content="Learning word in new language" />

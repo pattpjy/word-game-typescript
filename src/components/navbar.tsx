@@ -1,10 +1,19 @@
-export default function navBar(): React.ReactNode {
+import React from "react";
+
+interface NavBarProps {
+  cat: string[];
+}
+
+export const NavBar: React.FC<NavBarProps> = ({ cat }) => {
   return (
-    <ul>
-      <li>All</li>
-      <li>Greeting</li>
-      <li>Household</li>
-      <li>Food</li>
+    <ul className="nav-bar">
+      {cat.map((categories) => {
+        return (
+          <li key={categories}>
+            <button>{categories}</button>
+          </li>
+        );
+      })}
     </ul>
   );
-}
+};
