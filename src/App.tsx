@@ -1,26 +1,27 @@
 import { NavBarContainer } from "./containers/NavBarContainer";
 import styles from "./App.module.css";
-import { getAllWords } from "./apiCall/apiCall";
+
 import { useState, useEffect } from "react";
 import { WordBtnContainer } from "./containers/wordBtnContainer";
+import { WordData } from "./types/WordData";
+import { WordDataRepository } from "./repository/wordRepo";
 
 export default function Home() {
-  interface WordData {
-    id: number;
-    img_url: string;
-    audio_url: string;
-    word: string;
-    categories: string;
-  }
   const [allWords, setAllWords] = useState<WordData[]>([]);
 
-  const fetchData = async () => {
-    const data = await getAllWords();
-    setAllWords(data);
-  };
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const wordDataRepository = new WordDataRepository();
+        const data = await wordDataRepository.getAllWords();
+        setAllWords(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
     fetchData();
   }, []);
+  console.log(allWords);
 
   const displayWord = () => {
     const mappedData = allWords.map((el: WordData) => {
