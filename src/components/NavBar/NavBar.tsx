@@ -1,16 +1,27 @@
 import React from "react";
-
+import { getRandomWordsByCategories } from "../../apiCall/apiCall";
 interface NavBarProps {
-  cat: string[];
+  categories: string[];
 }
 
-export const NavBar: React.FC<NavBarProps> = ({ cat }) => {
+export const NavBar: React.FC<NavBarProps> = ({ categories }) => {
+  const handleCategorySelection = async (categories: string) => {
+    try {
+      const randomWords = await getRandomWordsByCategories(categories);
+      console.log(randomWords);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <ul className="nav-bar">
-      {cat.map((categories) => {
+      {categories.map((categories) => {
         return (
           <li key={categories}>
-            <button>{categories}</button>
+            <button onClick={() => handleCategorySelection(categories)}>
+              {categories}
+            </button>
           </li>
         );
       })}
