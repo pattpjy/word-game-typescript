@@ -7,8 +7,11 @@ interface GameBoardProps {
 }
 const GameBoard: React.FC<GameBoardProps> = ({ allWords }) => {
   const playWord = (src: string) => {
-    const audio = new Audio(src);
-    audio.play();
+    //error handling for cases where the audio_url is empty or invalid.
+    if (src) {
+      const audio = new Audio(src);
+      audio.play();
+    }
   };
 
   const displayWord = (words: WordData[]) => {

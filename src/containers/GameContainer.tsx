@@ -18,23 +18,19 @@ interface GameContainerProps {
 }
 const GameContainer: React.FC<GameContainerProps> = () => {
   const [allWords, setAllWords] = useState<WordData[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
 
-  const handleCategorySelect = (category: string) => {
+  const handleCategorySelect = async (category: string) => {
     setSelectedCategory(category);
+
+    try {
+      const wordDataRepository = new WordDataRepository();
+      const data = await wordDataRepository.getWordsByCategory(category);
+      setAllWords(data);
+    } catch (err) {
+      console.error(err);
+    }
   };
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const wordDataRepository = new WordDataRepository();
-        const data = await wordDataRepository.getAllWords();
-        setAllWords(data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    fetchData();
-  }, []);
   console.log(selectedCategory);
   return (
     <div className={styles["game-board"]}>

@@ -7,7 +7,7 @@ export const getAllWords = async (): Promise<any> => {
   return response.json();
 };
 
-export const getRandomWordsByCategories = async (
+export const getRandomWordsByCategory = async (
   category: string
 ): Promise<any> => {
   try {
