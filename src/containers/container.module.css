@@ -1,0 +1,16 @@
+.landing-body {
+  width: 90vw;
+  background-color: aliceblue;
+  margin: 5px;
+  display: flex;
+  padding: 1em;
+  flex-direction: column;
+}
+
+.play-btn {
+  border: none;
+  background: none;
+}
+.large-icon {
+  font-size: 60px;
+}
