@@ -1,12 +1,16 @@
 import styles from "./container.module.css";
 import { useNavigate } from "react-router-dom";
 
-const LandingContainer = () => {
+interface LandingContainerProp {
+  childName: string;
+}
+
+const LandingContainer: React.FC<LandingContainerProp> = ({ childName }) => {
   const navigate = useNavigate();
-  const handleClick = () => {
+  const handleClick = (): void => {
     navigate("/game");
   };
-  const childName = "Maddie";
+
   return (
     <div className={styles["landing-body"]}>
       <h1>Hello {childName}, </h1>
