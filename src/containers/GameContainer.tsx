@@ -1,7 +1,7 @@
 //the container component responsible for managing the logic and state associated with the game component.
 
 import React from "react";
-import { WordBtn } from "../components/WordBTN/wordBTN";
+
 import { NavBarContainer } from "./NavBarContainer";
 import styles from "./container.module.css";
 import { useState, useEffect } from "react";
@@ -18,7 +18,11 @@ interface GameContainerProps {
 }
 const GameContainer: React.FC<GameContainerProps> = () => {
   const [allWords, setAllWords] = useState<WordData[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
+  const handleCategorySelect = (category: string) => {
+    setSelectedCategory(category);
+  };
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -32,33 +36,14 @@ const GameContainer: React.FC<GameContainerProps> = () => {
     fetchData();
   }, []);
 
-  const playWord = (src: string) => {
-    const audio = new Audio(src);
-    audio.play();
-  };
-
-  const displayWord = () => {
-    const mappedData = allWords.map((el: WordData) => {
-      return (
-        <WordBtn
-          id={el.id}
-          imgSrc={el.img_url}
-          audioSrc={el.audio_url}
-          word={el.word}
-          onClick={playWord}
-        />
-      );
-    });
-    return mappedData;
-  };
-
   return (
     <div className={styles["game-board"]}>
-      <NavBarContainer />
-      <main className={styles.main}>
-        <GameBoard />
-        <div className={styles["word-board"]}>{displayWord()}</div>
-      </main>
+      <NavBarContainer onCategorySelected={handleCategorySelect} />
+      {selectedCategory && (
+        <main className={styles.main}>
+          <GameBoard allWords={allWords} />
+        </main>
+      )}
     </div>
   );
 };
