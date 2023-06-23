@@ -1,4 +1,4 @@
-//the container component responsible for managing the logic and state associated with the WordBtn component.
+//the container component responsible for managing the logic and state associated with the game component.
 
 import React from "react";
 import { WordBtn } from "../components/WordBTN/wordBTN";
@@ -6,8 +6,8 @@ import { NavBarContainer } from "./NavBarContainer";
 import styles from "../App.module.css";
 import { useState, useEffect } from "react";
 
-// import { WordData } from "./types/WordData";
-// import { WordDataRepository } from "./repository/wordRepo";
+import { WordData } from "../types/WordData";
+import { WordDataRepository } from "../repository/wordRepo";
 
 interface GameContainerProps {
   id: number;
@@ -16,12 +16,7 @@ interface GameContainerProps {
   word: string;
   categories: string;
 }
-const GameContainer: React.FC<GameContainerProps> = ({
-  id,
-  imgSrc,
-  audioSrc,
-  word,
-}) => {
+const GameContainer: React.FC<GameContainerProps> = () => {
   const [allWords, setAllWords] = useState<WordData[]>([]);
 
   useEffect(() => {
@@ -36,28 +31,26 @@ const GameContainer: React.FC<GameContainerProps> = ({
     };
     fetchData();
   }, []);
-  console.log(allWords);
 
+  const playWord = (src: string) => {
+    const audio = new Audio(src);
+    audio.play();
+  };
   const displayWord = () => {
     const mappedData = allWords.map((el: WordData) => {
       return (
-        <GameContainer
-          key={el.id}
+        <WordBtn
           id={el.id}
           imgSrc={el.img_url}
           audioSrc={el.audio_url}
           word={el.word}
-          categories={el.categories}
+          onClick={playWord}
         />
       );
     });
     return mappedData;
   };
 
-  const playWord = (src: string) => {
-    const audio = new Audio(src);
-    audio.play();
-  };
   return (
     <div className={styles.App}>
       <NavBarContainer />
@@ -74,14 +67,6 @@ const GameContainer: React.FC<GameContainerProps> = ({
         </div>
         <div className={styles["word-board"]}>{displayWord()}</div>
       </main>
-
-      <WordBtn
-        id={id}
-        imgSrc={imgSrc}
-        audioSrc={audioSrc}
-        word={word}
-        onClick={playWord}
-      />
     </div>
   );
 };

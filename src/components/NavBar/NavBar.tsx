@@ -7,8 +7,7 @@ interface NavBarProps {
 export const NavBar: React.FC<NavBarProps> = ({ categories }) => {
   const handleCategorySelection = async (categories: string) => {
     try {
-      const randomWords = await getRandomWordsByCategories(categories);
-      console.log(randomWords);
+      await getRandomWordsByCategories(categories);
     } catch (error) {
       console.error(error);
     }

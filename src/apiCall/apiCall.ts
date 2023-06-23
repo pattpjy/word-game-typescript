@@ -13,7 +13,7 @@ export const getRandomWordsByCategories = async (
   try {
     const queryParams = new URLSearchParams({ category });
     //in the future if I need to have multiple categories change parameter to URLSearchParams({ categories: categories.join(',') })
-    console.log(queryParams);
+
     const response = await fetch(`${url}/random?${queryParams.toString()}`);
     if (!response.ok) {
       throw new Error("Failed to fetch words from selected categories");
