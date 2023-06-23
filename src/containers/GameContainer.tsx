@@ -4,7 +4,7 @@ import React from "react";
 
 import { NavBarContainer } from "./NavBarContainer";
 import styles from "./container.module.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { WordData } from "../types/WordData";
 import { WordDataRepository } from "../repository/wordRepo";
@@ -30,7 +30,7 @@ const GameContainer: React.FC<GameContainerProps> = () => {
       console.error(err);
     }
   };
-  console.log(allWords);
+
   return (
     <div className={styles["game-board"]}>
       <NavBarContainer onCategorySelected={handleCategorySelect} />
