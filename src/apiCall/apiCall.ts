@@ -18,6 +18,7 @@ export const getRandomWordsByCategory = async (
     if (!response.ok) {
       throw new Error("Failed to fetch words from selected categories");
     }
+    return response.json();
   } catch (error) {
     console.error(error);
     throw error;

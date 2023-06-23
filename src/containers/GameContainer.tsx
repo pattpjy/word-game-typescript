@@ -22,7 +22,6 @@ const GameContainer: React.FC<GameContainerProps> = () => {
 
   const handleCategorySelect = async (category: string) => {
     setSelectedCategory(category);
-
     try {
       const wordDataRepository = new WordDataRepository();
       const data = await wordDataRepository.getWordsByCategory(category);
@@ -31,11 +30,11 @@ const GameContainer: React.FC<GameContainerProps> = () => {
       console.error(err);
     }
   };
-  console.log(selectedCategory);
+  console.log(allWords);
   return (
     <div className={styles["game-board"]}>
       <NavBarContainer onCategorySelected={handleCategorySelect} />
-      {selectedCategory && (
+      {allWords.length > 0 && selectedCategory && (
         <main className={styles.main}>
           <GameBoard allWords={allWords} />
         </main>
