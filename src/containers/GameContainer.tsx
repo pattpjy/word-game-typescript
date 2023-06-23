@@ -35,7 +35,7 @@ const GameContainer: React.FC<GameContainerProps> = () => {
     };
     fetchData();
   }, []);
-
+  console.log(selectedCategory);
   return (
     <div className={styles["game-board"]}>
       <NavBarContainer onCategorySelected={handleCategorySelect} />

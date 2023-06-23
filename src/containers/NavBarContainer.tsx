@@ -16,10 +16,13 @@ export const NavBarContainer: React.FC<NavBarContainerProp> = ({
     "clothings",
     "vehicles",
   ];
+  const handleCategorySelect = (category: string) => {
+    onCategorySelected(category);
+  };
   return (
     <NavBar
       categories={categoriesArray}
-      onCategorySelect={onCategorySelected}
+      onCategorySelect={handleCategorySelect}
     />
   );
 };
