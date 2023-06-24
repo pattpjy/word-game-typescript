@@ -7,7 +7,7 @@ export const getAllWords = async (): Promise<any> => {
   return response.json();
 };
 
-export const getRandomWordsByCategories = async (
+export const getRandomWordsByCategory = async (
   category: string
 ): Promise<any> => {
   try {
@@ -18,6 +18,7 @@ export const getRandomWordsByCategories = async (
     if (!response.ok) {
       throw new Error("Failed to fetch words from selected categories");
     }
+    return response.json();
   } catch (error) {
     console.error(error);
     throw error;

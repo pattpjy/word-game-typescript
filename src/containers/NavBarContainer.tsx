@@ -1,7 +1,12 @@
 import React from "react";
 import { NavBar } from "../components/NavBar/NavBar";
 
-export const NavBarContainer: React.FC = () => {
+interface NavBarContainerProp {
+  onCategorySelected: (category: string) => void;
+}
+export const NavBarContainer: React.FC<NavBarContainerProp> = ({
+  onCategorySelected,
+}) => {
   const categoriesArray = [
     "All",
     "food",
@@ -11,5 +16,13 @@ export const NavBarContainer: React.FC = () => {
     "clothings",
     "vehicles",
   ];
-  return <NavBar categories={categoriesArray} />;
+  const handleCategorySelect = (category: string) => {
+    onCategorySelected(category);
+  };
+  return (
+    <NavBar
+      categories={categoriesArray}
+      onCategorySelect={handleCategorySelect}
+    />
+  );
 };

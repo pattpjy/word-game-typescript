@@ -11,7 +11,3 @@
   display: flex;
   flex-direction: row;
 }
-.word-board {
-  display: grid;
-  grid-template-columns: 3;
-}
