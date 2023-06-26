@@ -8,7 +8,7 @@ export const CatBarContainer: React.FC<CatBarContainerProp> = ({
   onCategorySelected,
 }) => {
   const categoriesArray = [
-    "All",
+    "all",
     "food",
     "animals",
     "around us",
