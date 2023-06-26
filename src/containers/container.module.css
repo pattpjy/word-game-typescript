@@ -22,3 +22,13 @@
 .large-icon {
   font-size: 60px;
 }
+.hamburger-open {
+  display: block;
+}
+.catBarContainerOpen {
+  display: block;
+}
+
+.catBarContainerClose {
+  display: none;
+}

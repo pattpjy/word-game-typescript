@@ -1,10 +1,13 @@
 //the container component responsible for managing the logic and state associated with the game component.
 
-import React from "react";
+import React, { useState } from "react";
 
 import { CatBarContainer } from "./CatBarContainer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark, faBurger } from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+
 import styles from "./container.module.css";
-import { useState } from "react";
 
 import { WordData } from "../types/WordData";
 import { WordDataRepository } from "../repository/wordRepo";
@@ -16,10 +19,24 @@ interface GameContainerProps {
   word: string;
   categories: string;
 }
+
+// Import individual Font Awesome Pro icons
+library.add(faBurger, faXmark);
+
 const GameContainer: React.FC<GameContainerProps> = () => {
   const [allWords, setAllWords] = useState<WordData[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [catBarOpen, setCatBarOpen] = useState<boolean>(false);
 
+  const handleBurgerOpen = () => {
+    setCatBarOpen(true);
+  };
+  const handleBurgerClose = () => {
+    setCatBarOpen(false);
+  };
+
+  console.log(catBarOpen);
+  //maybe instead of having the burger open close state just have a catbar state?
   const handleCategorySelect = async (category: string) => {
     setSelectedCategory(category);
     try {
@@ -33,9 +50,18 @@ const GameContainer: React.FC<GameContainerProps> = () => {
 
   return (
     <div className={styles["game-board"]}>
-      <i className="fa-solid fa-burger" id="burger"></i>
-      <CatBarContainer onCategorySelected={handleCategorySelect} />
-      <i className="fa-solid fa-circle-xmark" id="xmark"></i>
+      <FontAwesomeIcon icon={faBurger} onClick={handleBurgerOpen} />
+      <div
+        className={`${styles["catBarContainer"]} ${
+          catBarOpen
+            ? styles["catBarContainerOpen"]
+            : styles["catBarContainerClose"]
+        }`}
+      >
+        <CatBarContainer onCategorySelected={handleCategorySelect} />
+      </div>
+
+      <FontAwesomeIcon icon={faXmark} onClick={handleBurgerClose} />
       {allWords.length > 0 && selectedCategory && (
         <main className={styles.main}>
           <GameBoard allWords={allWords} />
