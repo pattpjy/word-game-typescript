@@ -52,11 +52,11 @@ const GameContainer: React.FC<GameContainerProps> = () => {
     <div className={styles["game-board"]}>
       <FontAwesomeIcon icon={faBurger} onClick={handleBurgerOpen} />
       <div
-        className={`${styles["catBarContainer"]} ${
+        className={
           catBarOpen
             ? styles["catBarContainerOpen"]
             : styles["catBarContainerClose"]
-        }`}
+        }
       >
         <CatBarContainer onCategorySelected={handleCategorySelect} />
       </div>
