@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { NavBarContainer } from "./NavBarContainer";
+import { CatBarContainer } from "./CatBarContainer";
 import styles from "./container.module.css";
 import { useState } from "react";
 
@@ -33,7 +33,9 @@ const GameContainer: React.FC<GameContainerProps> = () => {
 
   return (
     <div className={styles["game-board"]}>
-      <NavBarContainer onCategorySelected={handleCategorySelect} />
+      <i className="fa-solid fa-burger" id="burger"></i>
+      <CatBarContainer onCategorySelected={handleCategorySelect} />
+      <i className="fa-solid fa-circle-xmark" id="xmark"></i>
       {allWords.length > 0 && selectedCategory && (
         <main className={styles.main}>
           <GameBoard allWords={allWords} />
