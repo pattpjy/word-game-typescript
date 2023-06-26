@@ -50,7 +50,11 @@ const GameContainer: React.FC<GameContainerProps> = () => {
 
   return (
     <div className={styles["game-board"]}>
-      <FontAwesomeIcon icon={faBurger} onClick={handleBurgerOpen} />
+      <FontAwesomeIcon
+        icon={faBurger}
+        className={styles["hamburger-icon"]}
+        onClick={handleBurgerOpen}
+      />
       <div
         className={
           catBarOpen
@@ -61,7 +65,12 @@ const GameContainer: React.FC<GameContainerProps> = () => {
         <CatBarContainer onCategorySelected={handleCategorySelect} />
       </div>
 
-      <FontAwesomeIcon icon={faXmark} onClick={handleBurgerClose} />
+      <FontAwesomeIcon
+        icon={faXmark}
+        className={styles["xmark-icon"]}
+        style={{ display: catBarOpen ? "block" : "none" }}
+        onClick={handleBurgerClose}
+      />
       {allWords.length > 0 && selectedCategory && (
         <main className={styles.main}>
           <GameBoard allWords={allWords} />

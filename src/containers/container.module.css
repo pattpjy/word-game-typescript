@@ -7,7 +7,9 @@
   flex-direction: column;
 }
 .game-board {
+  position: relative;
   width: 90vw;
+  height: 60vh;
   background-color: aliceblue;
   margin: 5px;
   display: flex;
@@ -22,13 +24,19 @@
 .large-icon {
   font-size: 60px;
 }
-.hamburger-open {
-  display: block;
-}
+
 .catBarContainerOpen {
   display: block;
 }
 
 .catBarContainerClose {
   display: none;
+}
+.xmark-icon {
+  color: red;
+}
+.hamburger-icon {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
 }
