@@ -35,8 +35,6 @@ const GameContainer: React.FC<GameContainerProps> = () => {
     setCatBarOpen(false);
   };
 
-  console.log(catBarOpen);
-  //maybe instead of having the burger open close state just have a catbar state?
   const handleCategorySelect = async (category: string) => {
     setSelectedCategory(category);
     try {
