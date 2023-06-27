@@ -1,5 +1,5 @@
 import React from "react";
-import { NavBar } from "../components/CatBar/CatBar";
+import { CatBar } from "../components/CatBar/CatBar";
 
 interface CatBarContainerProp {
   onCategorySelected: (category: string) => void;
@@ -20,7 +20,7 @@ export const CatBarContainer: React.FC<CatBarContainerProp> = ({
     onCategorySelected(category);
   };
   return (
-    <NavBar
+    <CatBar
       categories={categoriesArray}
       onCategorySelect={handleCategorySelect}
     />

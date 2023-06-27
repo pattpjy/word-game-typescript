@@ -40,3 +40,10 @@
   bottom: 20px;
   left: 20px;
 }
+.catBoxContainerVisible {
+  display: block;
+}
+
+.catBoxContainerHide {
+  display: none;
+}

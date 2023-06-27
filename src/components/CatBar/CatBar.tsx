@@ -1,11 +1,11 @@
 import React from "react";
 
-interface NavBarProps {
+interface CatBarProps {
   categories: string[];
   onCategorySelect: (category: string) => void;
 }
 
-export const NavBar: React.FC<NavBarProps> = ({
+export const CatBar: React.FC<CatBarProps> = ({
   categories,
   onCategorySelect,
 }) => {
