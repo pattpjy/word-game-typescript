@@ -12,6 +12,7 @@ import styles from "./container.module.css";
 import { WordData } from "../types/WordData";
 import { WordDataRepository } from "../repository/wordRepo";
 import GameBoard from "../components/GameBoard/GameBoard";
+import { CatBox } from "../components/CatBox/CatBox";
 interface GameContainerProps {
   id: number;
   imgSrc: string;
@@ -48,11 +49,23 @@ const GameContainer: React.FC<GameContainerProps> = () => {
 
   return (
     <div className={styles["game-board"]}>
+      <div
+        className={
+          selectedCategory
+            ? styles["catBoxContainerHide"]
+            : styles["catBoxContainerVisible"]
+        }
+      >
+        {" "}
+        <CatBox onCategorySelected={handleCategorySelect} />
+      </div>
+
       <FontAwesomeIcon
         icon={faBurger}
         className={styles["hamburger-icon"]}
         onClick={handleBurgerOpen}
       />
+
       <div
         className={
           catBarOpen

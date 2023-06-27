@@ -1,0 +1,22 @@
+.box {
+  position: absolute;
+  top: 35%;
+  left: 8%;
+  width: 80vw;
+  height: 20vh;
+  background-color: pink;
+}
+
+.catGrid {
+  position: inherit;
+  top: 30%;
+  left: 5%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  column-gap: 10px;
+}
+
+.btn:focus,
+.btn:focus-visible {
+  box-shadow: 0px 0px 10px 5px #0ff;
+}
