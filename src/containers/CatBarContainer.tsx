@@ -1,14 +1,14 @@
 import React from "react";
-import { NavBar } from "../components/NavBar/NavBar";
+import { NavBar } from "../components/CatBar/CatBar";
 
-interface NavBarContainerProp {
+interface CatBarContainerProp {
   onCategorySelected: (category: string) => void;
 }
-export const NavBarContainer: React.FC<NavBarContainerProp> = ({
+export const CatBarContainer: React.FC<CatBarContainerProp> = ({
   onCategorySelected,
 }) => {
   const categoriesArray = [
-    "All",
+    "all",
     "food",
     "animals",
     "around us",

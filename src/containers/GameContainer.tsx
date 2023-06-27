@@ -1,10 +1,13 @@
 //the container component responsible for managing the logic and state associated with the game component.
 
-import React from "react";
+import React, { useState } from "react";
 
-import { NavBarContainer } from "./NavBarContainer";
+import { CatBarContainer } from "./CatBarContainer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark, faBurger } from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+
 import styles from "./container.module.css";
-import { useState } from "react";
 
 import { WordData } from "../types/WordData";
 import { WordDataRepository } from "../repository/wordRepo";
@@ -16,9 +19,21 @@ interface GameContainerProps {
   word: string;
   categories: string;
 }
+
+// Import individual Font Awesome Pro icons
+library.add(faBurger, faXmark);
+
 const GameContainer: React.FC<GameContainerProps> = () => {
   const [allWords, setAllWords] = useState<WordData[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [catBarOpen, setCatBarOpen] = useState<boolean>(false);
+
+  const handleBurgerOpen = () => {
+    setCatBarOpen(true);
+  };
+  const handleBurgerClose = () => {
+    setCatBarOpen(false);
+  };
 
   const handleCategorySelect = async (category: string) => {
     setSelectedCategory(category);
@@ -33,7 +48,27 @@ const GameContainer: React.FC<GameContainerProps> = () => {
 
   return (
     <div className={styles["game-board"]}>
-      <NavBarContainer onCategorySelected={handleCategorySelect} />
+      <FontAwesomeIcon
+        icon={faBurger}
+        className={styles["hamburger-icon"]}
+        onClick={handleBurgerOpen}
+      />
+      <div
+        className={
+          catBarOpen
+            ? styles["catBarContainerOpen"]
+            : styles["catBarContainerClose"]
+        }
+      >
+        <CatBarContainer onCategorySelected={handleCategorySelect} />
+      </div>
+
+      <FontAwesomeIcon
+        icon={faXmark}
+        className={styles["xmark-icon"]}
+        style={{ display: catBarOpen ? "block" : "none" }}
+        onClick={handleBurgerClose}
+      />
       {allWords.length > 0 && selectedCategory && (
         <main className={styles.main}>
           <GameBoard allWords={allWords} />

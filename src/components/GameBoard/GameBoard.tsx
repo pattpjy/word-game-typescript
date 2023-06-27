@@ -31,8 +31,6 @@ const GameBoard: React.FC<GameBoardProps> = ({ allWords }) => {
   };
   return (
     <div>
-      <h1>Welcome to the Game board</h1>
-      <p>This is the board of your application.</p>
       <div className={styles["word-board"]}>{displayWord(allWords)}</div>
     </div>
   );
