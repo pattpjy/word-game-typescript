@@ -14,7 +14,7 @@ library.add(faArrowsRotate, faXmark);
 
 const GameBoard: React.FC<GameBoardProps> = ({ allWords }) => {
   const [wordCount, setWordCount] = useState<number>(0);
-  const [showModal, setShowModal] = useState<boolean>(false)
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   const playWord = (src: string) => {
     //error handling for cases where the audio_url is empty or invalid.
@@ -26,11 +26,11 @@ const GameBoard: React.FC<GameBoardProps> = ({ allWords }) => {
   };
   const handledOnXmarkClick = () => {
     console.log("X Clicked");
-    setShowModal(true)
+    setShowModal(true);
   };
-const handleModalClose = () => {
-  setShowModal(false)
-}
+  const handleModalClose = () => {
+    setShowModal(false);
+  };
   const displayWord = (words: WordData[]) => {
     const mappedData = words.map((el: WordData) => {
       return (
@@ -52,7 +52,7 @@ const handleModalClose = () => {
       <div className={styles["word-board"]}>{displayWord(allWords)}</div>
       <FontAwesomeIcon onClick={handledOnXmarkClick} icon={faXmark} />
       <p>Word Count {wordCount}</p>
-      {showModal && <GamePauseModal onClose={handleModalClose}}
+      {showModal && <GamePauseModal onClose={handleModalClose} />}
     </div>
   );
 };
