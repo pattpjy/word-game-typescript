@@ -4,6 +4,7 @@ import styles from "./gameBoard.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowsRotate, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import { useState } from "react";
 
 interface GameBoardProps {
   allWords: WordData[];
@@ -11,12 +12,15 @@ interface GameBoardProps {
 library.add(faArrowsRotate, faXmark);
 
 const GameBoard: React.FC<GameBoardProps> = ({ allWords }) => {
+  const [wordCount, setWordCount] = useState<number>(0);
+
   const playWord = (src: string) => {
     //error handling for cases where the audio_url is empty or invalid.
     if (src) {
       const audio = new Audio(src);
       audio.play();
     }
+    setWordCount(wordCount + 1);
   };
 
   const displayWord = (words: WordData[]) => {
@@ -39,6 +43,7 @@ const GameBoard: React.FC<GameBoardProps> = ({ allWords }) => {
       <FontAwesomeIcon icon={faArrowsRotate} />
       <div className={styles["word-board"]}>{displayWord(allWords)}</div>
       <FontAwesomeIcon icon={faXmark} />
+      <p>Word Count {wordCount}</p>
     </div>
   );
 };
