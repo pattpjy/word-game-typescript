@@ -1,5 +1,5 @@
 import { useState } from "react";
-interface ModalHook {
+export interface ModalHook {
   isOpen: boolean;
   openModal: () => void;
   closeModal: () => void;
