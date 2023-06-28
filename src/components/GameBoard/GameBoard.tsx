@@ -1,10 +1,15 @@
 import { WordData } from "../../types/WordData";
 import { WordBtn } from "../WordBTN/wordBTN";
 import styles from "./gameBoard.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowsRotate, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
 
 interface GameBoardProps {
   allWords: WordData[];
 }
+library.add(faArrowsRotate, faXmark);
+
 const GameBoard: React.FC<GameBoardProps> = ({ allWords }) => {
   const playWord = (src: string) => {
     //error handling for cases where the audio_url is empty or invalid.
@@ -30,8 +35,10 @@ const GameBoard: React.FC<GameBoardProps> = ({ allWords }) => {
     return mappedData;
   };
   return (
-    <div>
+    <div className={styles["board-container"]}>
+      <FontAwesomeIcon icon={faArrowsRotate} />
       <div className={styles["word-board"]}>{displayWord(allWords)}</div>
+      <FontAwesomeIcon icon={faXmark} />
     </div>
   );
 };
