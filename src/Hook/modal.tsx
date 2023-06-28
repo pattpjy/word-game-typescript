@@ -6,7 +6,7 @@ export interface ModalHook {
 }
 
 export const useModal: () => ModalHook = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const openModal = (): void => {
     setIsOpen(true);
