@@ -1,5 +1,3 @@
-
-
 # Thai Game UI
 
 This repository contains the user interface (UI) code for the Thai Game, a language learning application that helps users learn Thai words through interactive games. The UI is built using React and incorporates various components and patterns for a well-structured and maintainable codebase.
@@ -71,3 +69,63 @@ If you have any questions or need further assistance, please feel free to contac
 ---
 
 Feel free to customize this README template further based on your specific project and repository details.
+
+```
+word-game-typescript
+├─ .eslintrc.cjs
+├─ .git
+├─ .gitignore
+├─ README.md
+├─ documentations
+├─ index.html
+├─ package-lock.json
+├─ package.json
+├─ public
+│  ├─ assets
+│  └─ vite.svg
+├─ src
+│  ├─ App.module.css
+│  ├─ App.tsx
+│  ├─ apiCall
+│  │  └─ apiCall.ts
+│  ├─ assets
+│  │  ├─ audio
+│  │  │  ├─ apple.mp3
+│  │  │  ├─ car.mp3
+│  │  │  └─ tree.mp3
+│  │  └─ react.svg
+│  ├─ components
+│  │  ├─ CatBar
+│  │  │  ├─ CatBar.module.css
+│  │  │  └─ CatBar.tsx
+│  │  ├─ CatBox
+│  │  │  ├─ CatBox.tsx
+│  │  │  └─ catBox.module.css
+│  │  ├─ GameBoard
+│  │  │  ├─ GameBoard.tsx
+│  │  │  └─ gameBoard.module.css
+│  │  ├─ ParentMode
+│  │  │  └─ parentModeBtn.tsx
+│  │  └─ WordBTN
+│  │     ├─ wordBTN.module.css
+│  │     └─ wordBTN.tsx
+│  ├─ containers
+│  │  ├─ CatBarContainer.tsx
+│  │  ├─ GameContainer.tsx
+│  │  ├─ LandingContainer.tsx
+│  │  ├─ ProgressContainer.tsx
+│  │  ├─ SettingContainer.tsx
+│  │  └─ container.module.css
+│  ├─ index.css
+│  ├─ index.tsx
+│  ├─ repository
+│  │  └─ wordRepo.ts
+│  ├─ styles
+│  ├─ types
+│  │  └─ WordData.ts
+│  └─ vite-env.d.ts
+├─ tsconfig.json
+├─ tsconfig.node.json
+└─ vite.config.ts
+
+```
