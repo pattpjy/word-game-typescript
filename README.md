@@ -10,6 +10,10 @@ This repository contains the user interface (UI) code for the Thai Game, a langu
 - Implements a responsive layout for optimal viewing on different devices.
 - Integrates API calls to fetch random words from selected categories.
 
+## Documentation
+
+UX/UI process https://citrine-peridot-63e.notion.site/Thai-words-game-UX-UI-process-694f7e7a015f4413b4fd128259512e33?pvs=4
+
 ## Installation
 
 1. Clone the repository:
