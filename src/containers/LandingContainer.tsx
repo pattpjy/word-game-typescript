@@ -1,5 +1,6 @@
 import styles from "./container.module.css";
 import { useNavigate } from "react-router-dom";
+import StickyFooter from "../components/sticky-footer/StickyFooter";
 
 interface LandingContainerProp {
   childName: string;
@@ -20,6 +21,7 @@ const LandingContainer: React.FC<LandingContainerProp> = ({ childName }) => {
       <button className={styles["play-btn"]} onClick={handleClick}>
         <i className={`fa-duotone fa-circle-play ${styles["large-icon"]}`}></i>
       </button>
+      {/* {StickyFooter()} */}
     </div>
   );
 };
