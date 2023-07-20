@@ -4,7 +4,7 @@ import LandingContainer from "./containers/LandingContainer";
 import GameContainer from "./containers/GameContainer";
 import ProgressContainer from "./containers/ProgressContainer";
 import SettingContainer from "./containers/SettingContainer";
-
+import StickyFooter from "./components/sticky-footer/StickyFooter";
 const App: React.FC = () => {
   return (
     <BrowserRouter>
@@ -25,6 +25,7 @@ const App: React.FC = () => {
         <Route path="/progress" element={<ProgressContainer />} />
         <Route path="/setting" element={<SettingContainer />} />
       </Routes>
+      {StickyFooter()}
     </BrowserRouter>
   );
 };
