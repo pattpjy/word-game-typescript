@@ -44,7 +44,6 @@ export default function StickyFooter() {
           <IconButton aria-label="parentMode">
             <FontAwesomeIcon icon={faUserGroup} />
           </IconButton>
-
           <Copyright />
         </Container>
       </Box>

@@ -1,5 +1,7 @@
 .box {
   position: absolute;
+  display: flex;
+  flex-direction: column;
   top: 35%;
   left: 8%;
   width: 80vw;
@@ -8,9 +10,9 @@
 }
 
 .catGrid {
-  position: inherit;
+  position: absolute;
   top: 30%;
-  left: 5%;
+  left: 15%;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   column-gap: 10px;
