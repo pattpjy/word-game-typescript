@@ -29,7 +29,7 @@ export const CatBox: React.FC<CatBoxContainerProp> = ({
       onCategorySelected(selectedCat);
     }
   };
-  console.log(selectedCat);
+
   return (
     <div className={styles["box"]}>
       <div className={styles["catGrid"]}>
