@@ -8,6 +8,7 @@
 }
 .game-board {
   position: relative;
+  right: 0;
   width: 90vw;
   height: 45vh;
   background-color: aliceblue;
@@ -15,6 +16,7 @@
   display: flex;
   padding: 1em;
   flex-direction: row;
+  justify-content: end;
 }
 
 .play-btn {

@@ -56,7 +56,6 @@ const GameContainer: React.FC<GameContainerProps> = () => {
             : styles["catBoxContainerVisible"]
         }
       >
-        {" "}
         <CatBox onCategorySelected={handleCategorySelect} />
       </div>
 
