@@ -4,8 +4,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 
-import Box from "@mui/material/Box";
-
 interface CatBarProps {
   categories: string[];
   onCategorySelect: (category: string) => void;
@@ -20,7 +18,7 @@ export const CatBar: React.FC<CatBarProps> = ({
   };
 
   return (
-    <Box sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
+    <div>
       <nav aria-label="category selections bar">
         {categories.map((categories) => {
           return (
@@ -37,6 +35,6 @@ export const CatBar: React.FC<CatBarProps> = ({
           );
         })}
       </nav>
-    </Box>
+    </div>
   );
 };

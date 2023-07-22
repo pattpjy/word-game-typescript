@@ -17,7 +17,16 @@ const LandingContainer: React.FC<LandingContainerProp> = ({ childName }) => {
   return (
     <Container fixed>
       <CssBaseline />
-      <Box sx={{ bgcolor: "#cfe8fc", width: "100vh", height: "60vh" }}>
+      <Box
+        sx={{
+          display: "flex",
+          bgcolor: "#cfe8fc",
+          width: "100vh",
+          height: "60vh",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         <Typography variant="h1">
           Hello {childName}, Let's learn Thai
         </Typography>
