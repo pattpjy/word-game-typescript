@@ -78,7 +78,7 @@ const GameContainer: React.FC<GameContainerProps> = () => {
       <FontAwesomeIcon
         icon={faXmark}
         className={styles["xmark-icon"]}
-        style={{ display: catBarOpen ? "block" : "none" }}
+        style={{ display: catBarOpen ? "block" : "none", fontSize: "4rem" }}
         onClick={handleBurgerClose}
       />
       {allWords.length > 0 && selectedCategory && (

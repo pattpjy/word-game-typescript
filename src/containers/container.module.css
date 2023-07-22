@@ -35,11 +35,13 @@
 }
 .xmark-icon {
   color: red;
+  font-size: 4rem;
 }
 .hamburger-icon {
   position: absolute;
   bottom: 20px;
   left: 20px;
+  font-size: 4rem;
 }
 .catBoxContainerVisible {
   display: block;
