@@ -10,3 +10,15 @@
   height: fit-content;
   border: solid red 2px;
 }
+
+.x-icon {
+  font-size: 4rem;
+}
+.rotate-icon {
+  font-size: 4rem;
+}
+.word-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
