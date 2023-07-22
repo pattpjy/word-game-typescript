@@ -8,15 +8,14 @@
 }
 .game-board {
   position: relative;
-  right: 0;
   width: 90vw;
   height: 45vh;
   background-color: aliceblue;
+  padding: 1em;
   margin: 5px;
   display: flex;
-  padding: 1em;
   flex-direction: row;
-  justify-content: end;
+  justify-content: center;
 }
 
 .play-btn {
@@ -48,4 +47,8 @@
 
 .catBoxContainerHide {
   display: none;
+}
+.main {
+  display: flex;
+  justify-content: center;
 }
