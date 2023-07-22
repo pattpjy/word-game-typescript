@@ -3,16 +3,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   top: 35%;
+  left: 5%;
   width: 80vw;
   height: 20vh;
-  background-color: pink;
+  background-color: gray;
 }
 
 .catGrid {
   position: absolute;
   top: 30%;
-  left: 15%;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   column-gap: 10px;

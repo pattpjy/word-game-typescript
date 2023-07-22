@@ -62,12 +62,6 @@ export const CatBox: React.FC<CatBoxContainerProp> = ({
             background: "none",
           },
         }}
-        // sx={{
-        //   width: 200,
-        //   padding: 1,
-        //   margin: "2em 0 0 8em",
-        //   fontSize: "4rem",
-        // }}
       >
         <FontAwesomeIcon icon={faCirclePlay} />
       </IconButton>
