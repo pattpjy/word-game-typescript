@@ -25,6 +25,7 @@ export const CatBar: React.FC<CatBarProps> = ({
             <List>
               <ListItem disablePadding>
                 <ListItemButton
+                  sx={{ padding: "0" }}
                   key={categories}
                   onClick={() => handleCategorySelection(categories)}
                 >
