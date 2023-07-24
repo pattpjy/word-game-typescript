@@ -1,16 +1,18 @@
 .box {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   top: 35%;
-  left: 8%;
+  left: 5%;
   width: 80vw;
   height: 20vh;
-  background-color: pink;
 }
 
 .catGrid {
-  position: inherit;
+  position: absolute;
   top: 30%;
-  left: 5%;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   column-gap: 10px;

@@ -48,10 +48,20 @@ const GameBoard: React.FC<GameBoardProps> = ({ allWords }) => {
   };
   return (
     <div className={styles["board-container"]}>
-      <FontAwesomeIcon icon={faArrowsRotate} />
+      <FontAwesomeIcon
+        icon={faArrowsRotate}
+        className={styles["rotate-icon"]}
+      />
       <div className={styles["word-board"]}>{displayWord(allWords)}</div>
-      <FontAwesomeIcon onClick={handledOnXmarkClick} icon={faXmark} />
-      <p>Word Count {wordCount}</p>
+      <FontAwesomeIcon
+        onClick={handledOnXmarkClick}
+        icon={faXmark}
+        className={styles["x-icon"]}
+      />
+      <div className={styles["word-count"]}>
+        <p>Word Count :</p> <br></br>
+        <p>{wordCount}</p>
+      </div>
       {showModal && <GamePauseModal onClose={handleModalClose} />}
     </div>
   );

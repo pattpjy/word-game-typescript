@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import styles from "./catBox.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
+import { IconButton } from "@mui/material";
 
 interface CatBoxContainerProp {
   onCategorySelected: (category: string) => void;
@@ -45,9 +48,23 @@ export const CatBox: React.FC<CatBoxContainerProp> = ({
           );
         })}
       </div>
-      <button className={styles["play-btn"]} onClick={handlePlayClick}>
-        <i className={`fa-duotone fa-circle-play ${styles["large-icon"]}`}></i>
-      </button>
+
+      <IconButton
+        // variant="text"
+        size="small"
+        aria-label="playCategory"
+        onClick={handlePlayClick}
+        sx={{
+          margin: "2em 0 0 0",
+          padding: "0",
+          fontSize: "4rem",
+          "&:hover": {
+            background: "none",
+          },
+        }}
+      >
+        <FontAwesomeIcon icon={faCirclePlay} />
+      </IconButton>
     </div>
   );
 };

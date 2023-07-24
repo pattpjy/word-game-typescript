@@ -8,15 +8,14 @@
 }
 .game-board {
   position: relative;
-  right: 0;
   width: 90vw;
   height: 45vh;
   background-color: aliceblue;
+  padding: 1em;
   margin: 5px;
   display: flex;
-  padding: 1em;
   flex-direction: row;
-  justify-content: end;
+  justify-content: center;
 }
 
 .play-btn {
@@ -36,11 +35,14 @@
 }
 .xmark-icon {
   color: red;
+  font-size: 4rem;
 }
 .hamburger-icon {
+  color: rgba(0, 0, 0, 0.54);
   position: absolute;
   bottom: 20px;
   left: 20px;
+  font-size: 4rem;
 }
 .catBoxContainerVisible {
   display: block;
@@ -48,4 +50,8 @@
 
 .catBoxContainerHide {
   display: none;
+}
+.main {
+  display: flex;
+  justify-content: center;
 }
