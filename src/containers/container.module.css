@@ -24,6 +24,7 @@
 }
 .large-icon {
   font-size: 60px;
+  animation-duration: 3s;
 }
 
 .catBarContainerOpen {
