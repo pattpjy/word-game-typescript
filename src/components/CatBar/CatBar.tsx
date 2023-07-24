@@ -22,7 +22,7 @@ export const CatBar: React.FC<CatBarProps> = ({
       <nav aria-label="category selections bar">
         {categories.map((categories) => {
           return (
-            <List>
+            <List key={categories}>
               <ListItem disablePadding>
                 <ListItemButton
                   sx={{ padding: "0" }}
