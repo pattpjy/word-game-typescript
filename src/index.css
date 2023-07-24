@@ -1,5 +1,6 @@
 /* Tablet and landscape styles */
 :root {
+  height: 820px;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -25,7 +26,7 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  justify-content: center;
+  justify-content: space-between;
   height: 100%;
   background-size: cover;
   background: linear-gradient(red, transparent),
@@ -75,6 +76,6 @@ button:focus-visible {
 /* Desktop styles */
 @media only screen and (min-width: 1024px) {
   .game-view {
-    height: 600px; /* Adjust the height value as needed for desktops */
+    height: 820px; /* Adjust the height value as needed for desktops */
   }
 }
