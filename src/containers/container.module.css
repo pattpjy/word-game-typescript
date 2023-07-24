@@ -41,6 +41,16 @@
 .hamburger-icon {
   color: rgba(0, 0, 0, 0.54);
   position: absolute;
+  display: none;
+  bottom: 20px;
+  left: 20px;
+  font-size: 4rem;
+}
+
+.hamburger-icon-open {
+  color: rgba(0, 0, 0, 0.54);
+  position: absolute;
+  display: block;
   bottom: 20px;
   left: 20px;
   font-size: 4rem;

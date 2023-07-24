@@ -46,7 +46,9 @@ const GameContainer: React.FC<GameContainerProps> = () => {
       console.error(err);
     }
   };
-
+  const hamburgerIconStyles = {
+    display: selectedCategory ? "block" : "none",
+  };
   return (
     <div className={styles["game-board"]}>
       <div
@@ -62,6 +64,7 @@ const GameContainer: React.FC<GameContainerProps> = () => {
       <FontAwesomeIcon
         icon={faBurger}
         className={styles["hamburger-icon"]}
+        style={hamburgerIconStyles}
         onClick={handleBurgerOpen}
       />
 
