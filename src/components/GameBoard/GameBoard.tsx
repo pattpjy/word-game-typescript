@@ -10,10 +10,16 @@ import { Typography } from "@mui/material";
 
 interface GameBoardProps {
   allWords: WordData[];
+  onCategorySelected: (category: string) => void;
+  selectedCategories: string;
 }
 library.add(faArrowsRotate, faXmark);
 
-const GameBoard: React.FC<GameBoardProps> = ({ allWords }) => {
+const GameBoard: React.FC<GameBoardProps> = ({
+  allWords,
+  onCategorySelected,
+  selectedCategories,
+}) => {
   const [wordCount, setWordCount] = useState<number>(0);
   const [showModal, setShowModal] = useState<boolean>(false);
 
@@ -47,12 +53,17 @@ const GameBoard: React.FC<GameBoardProps> = ({ allWords }) => {
     });
     return mappedData;
   };
+  const onRotateClick = async (selectedCategories: string) => {
+    onCategorySelected(selectedCategories);
+  };
+
   return (
     <div className={styles["board-container"]}>
       <div className={styles["game-nav"]}>
         <FontAwesomeIcon
           icon={faArrowsRotate}
           className={styles["rotate-icon"]}
+          onClick={() => onRotateClick(selectedCategories)}
         />
         <div className={styles["word-board"]}>{displayWord(allWords)}</div>
         <FontAwesomeIcon

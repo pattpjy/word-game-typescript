@@ -86,7 +86,11 @@ const GameContainer: React.FC<GameContainerProps> = () => {
       />
       {allWords.length > 0 && selectedCategory && (
         <main className={styles.main}>
-          <GameBoard allWords={allWords} />
+          <GameBoard
+            allWords={allWords}
+            onCategorySelected={handleCategorySelect}
+            selectedCategories={selectedCategory}
+          />
         </main>
       )}
     </div>
