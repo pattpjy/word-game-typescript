@@ -7,9 +7,8 @@
 
 .board-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: fit-content;
-  border: solid red 2px;
 }
 
 .x-icon {
@@ -18,8 +17,19 @@
 .rotate-icon {
   font-size: 4rem;
 }
-.word-count {
+.rotate-icon:hover,
+.x-icon:hover {
+  background-color: rgb(183, 182, 182, 0.8);
+  border-radius: 10%;
+}
+.game-status {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.game-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

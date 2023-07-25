@@ -6,13 +6,20 @@ import { faArrowsRotate, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { useState } from "react";
 import { GamePauseModal } from "../GamePause/GamePause";
+import { Typography } from "@mui/material";
 
 interface GameBoardProps {
   allWords: WordData[];
+  onCategorySelected: (category: string) => void;
+  selectedCategories: string;
 }
 library.add(faArrowsRotate, faXmark);
 
-const GameBoard: React.FC<GameBoardProps> = ({ allWords }) => {
+const GameBoard: React.FC<GameBoardProps> = ({
+  allWords,
+  onCategorySelected,
+  selectedCategories,
+}) => {
   const [wordCount, setWordCount] = useState<number>(0);
   const [showModal, setShowModal] = useState<boolean>(false);
 
@@ -46,21 +53,29 @@ const GameBoard: React.FC<GameBoardProps> = ({ allWords }) => {
     });
     return mappedData;
   };
+  const onRotateClick = async (selectedCategories: string) => {
+    onCategorySelected(selectedCategories);
+  };
+
   return (
     <div className={styles["board-container"]}>
-      <FontAwesomeIcon
-        icon={faArrowsRotate}
-        className={styles["rotate-icon"]}
-      />
+      <div className={styles["game-nav"]}>
+        <FontAwesomeIcon
+          icon={faArrowsRotate}
+          className={styles["rotate-icon"]}
+          onClick={() => onRotateClick(selectedCategories)}
+        />
+
+        <FontAwesomeIcon
+          onClick={handledOnXmarkClick}
+          icon={faXmark}
+          className={styles["x-icon"]}
+        />
+      </div>
       <div className={styles["word-board"]}>{displayWord(allWords)}</div>
-      <FontAwesomeIcon
-        onClick={handledOnXmarkClick}
-        icon={faXmark}
-        className={styles["x-icon"]}
-      />
-      <div className={styles["word-count"]}>
-        <p>Word Count :</p> <br></br>
-        <p>{wordCount}</p>
+      <div className={styles["game-status"]}>
+        <Typography variant="h4">{selectedCategories}</Typography>
+        <Typography variant="h4">Word Count : {wordCount}</Typography>
       </div>
       {showModal && <GamePauseModal onClose={handleModalClose} />}
     </div>

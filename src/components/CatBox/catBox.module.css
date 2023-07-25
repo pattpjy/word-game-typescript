@@ -17,8 +17,3 @@
   grid-template-columns: repeat(7, 1fr);
   column-gap: 10px;
 }
-
-.btn:focus,
-.btn:focus-visible {
-  box-shadow: 0px 0px 10px 5px #0ff;
-}

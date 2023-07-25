@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./catBox.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
-import { IconButton } from "@mui/material";
+import { IconButton, Button } from "@mui/material";
 
 interface CatBoxContainerProp {
   onCategorySelected: (category: string) => void;
@@ -38,13 +38,13 @@ export const CatBox: React.FC<CatBoxContainerProp> = ({
       <div className={styles["catGrid"]}>
         {categoriesArray.map((categories) => {
           return (
-            <button
-              className={styles["btn"]}
+            <Button
+              variant="contained"
               key={categories}
               onClick={() => handleCategorySelect(categories)}
             >
               {categories}
-            </button>
+            </Button>
           );
         })}
       </div>
@@ -55,7 +55,7 @@ export const CatBox: React.FC<CatBoxContainerProp> = ({
         aria-label="playCategory"
         onClick={handlePlayClick}
         sx={{
-          margin: "2em 0 0 0",
+          margin: "3em 0 0 0",
           padding: "0",
           fontSize: "4rem",
           "&:hover": {
