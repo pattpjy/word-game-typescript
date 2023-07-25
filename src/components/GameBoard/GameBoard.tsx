@@ -73,10 +73,9 @@ const GameBoard: React.FC<GameBoardProps> = ({
         />
       </div>
 
-      <div className={styles["word-count"]}>
+      <div className={styles["game-status"]}>
+        <Typography variant="h4">{selectedCategories}</Typography>
         <Typography variant="h4">Word Count : {wordCount}</Typography>
-
-        {/* <p>{wordCount}</p> */}
       </div>
       {showModal && <GamePauseModal onClose={handleModalClose} />}
     </div>
