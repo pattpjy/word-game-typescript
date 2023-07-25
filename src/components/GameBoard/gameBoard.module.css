@@ -9,7 +9,6 @@
   display: flex;
   flex-direction: column;
   height: fit-content;
-  border: solid red 2px;
 }
 
 .x-icon {
