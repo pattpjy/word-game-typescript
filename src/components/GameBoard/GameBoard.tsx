@@ -65,14 +65,14 @@ const GameBoard: React.FC<GameBoardProps> = ({
           className={styles["rotate-icon"]}
           onClick={() => onRotateClick(selectedCategories)}
         />
-        <div className={styles["word-board"]}>{displayWord(allWords)}</div>
+
         <FontAwesomeIcon
           onClick={handledOnXmarkClick}
           icon={faXmark}
           className={styles["x-icon"]}
         />
       </div>
-
+      <div className={styles["word-board"]}>{displayWord(allWords)}</div>
       <div className={styles["game-status"]}>
         <Typography variant="h4">{selectedCategories}</Typography>
         <Typography variant="h4">Word Count : {wordCount}</Typography>

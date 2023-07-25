@@ -1,8 +1,11 @@
 import React from "react";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
+import {
+  List,
+  Box,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+} from "@mui/material/";
 
 interface CatBarProps {
   categories: string[];
@@ -19,13 +22,13 @@ export const CatBar: React.FC<CatBarProps> = ({
 
   return (
     <div>
-      <nav aria-label="category selections bar">
+      <Box aria-label="category selections bar" sx={{ boxShadow: 3 }}>
         {categories.map((categories) => {
           return (
-            <List key={categories}>
-              <ListItem disablePadding>
+            <List key={categories} sx={{ margin: 0.5 }} disablePadding>
+              <ListItem sx={{ padding: 0 }}>
                 <ListItemButton
-                  sx={{ padding: "0" }}
+                  sx={{ padding: 1 }}
                   key={categories}
                   onClick={() => handleCategorySelection(categories)}
                 >
@@ -35,7 +38,7 @@ export const CatBar: React.FC<CatBarProps> = ({
             </List>
           );
         })}
-      </nav>
+      </Box>
     </div>
   );
 };
