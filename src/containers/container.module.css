@@ -9,7 +9,7 @@
 .game-board {
   position: relative;
   width: 90vw;
-  height: 45vh;
+  height: 60vh;
   background-color: aliceblue;
   padding: 1em;
   margin: 5px;
@@ -47,14 +47,6 @@
   font-size: 4rem;
 }
 
-.hamburger-icon-open {
-  color: rgba(0, 0, 0, 0.54);
-  position: absolute;
-  display: block;
-  bottom: 20px;
-  left: 20px;
-  font-size: 4rem;
-}
 .catBoxContainerVisible {
   display: block;
 }

@@ -6,6 +6,7 @@ import { faArrowsRotate, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { useState } from "react";
 import { GamePauseModal } from "../GamePause/GamePause";
+import { Typography } from "@mui/material";
 
 interface GameBoardProps {
   allWords: WordData[];
@@ -48,19 +49,23 @@ const GameBoard: React.FC<GameBoardProps> = ({ allWords }) => {
   };
   return (
     <div className={styles["board-container"]}>
-      <FontAwesomeIcon
-        icon={faArrowsRotate}
-        className={styles["rotate-icon"]}
-      />
-      <div className={styles["word-board"]}>{displayWord(allWords)}</div>
-      <FontAwesomeIcon
-        onClick={handledOnXmarkClick}
-        icon={faXmark}
-        className={styles["x-icon"]}
-      />
+      <div className={styles["game-nav"]}>
+        <FontAwesomeIcon
+          icon={faArrowsRotate}
+          className={styles["rotate-icon"]}
+        />
+        <div className={styles["word-board"]}>{displayWord(allWords)}</div>
+        <FontAwesomeIcon
+          onClick={handledOnXmarkClick}
+          icon={faXmark}
+          className={styles["x-icon"]}
+        />
+      </div>
+
       <div className={styles["word-count"]}>
-        <p>Word Count :</p> <br></br>
-        <p>{wordCount}</p>
+        <Typography variant="h4">Word Count : {wordCount}</Typography>
+
+        {/* <p>{wordCount}</p> */}
       </div>
       {showModal && <GamePauseModal onClose={handleModalClose} />}
     </div>
