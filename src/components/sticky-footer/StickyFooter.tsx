@@ -7,6 +7,7 @@ import Link from "@mui/material/Link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserGroup } from "@fortawesome/free-solid-svg-icons";
 import { IconButton } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -24,8 +25,12 @@ function Copyright() {
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function StickyFooter() {
-  //add click handler route to setting
+export const StickyFooter = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/parentsMode");
+  };
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
@@ -42,7 +47,7 @@ export default function StickyFooter() {
         }}
       >
         <Container maxWidth="sm">
-          <IconButton aria-label="parentMode">
+          <IconButton aria-label="parentMode" onClick={handleClick}>
             <FontAwesomeIcon icon={faUserGroup} />
           </IconButton>
           {/* <Copyright /> */}
@@ -50,4 +55,4 @@ export default function StickyFooter() {
       </Box>
     </ThemeProvider>
   );
-}
+};
