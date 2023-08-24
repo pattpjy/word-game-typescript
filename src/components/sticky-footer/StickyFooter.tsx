@@ -7,6 +7,7 @@ import Link from "@mui/material/Link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserGroup } from "@fortawesome/free-solid-svg-icons";
 import { IconButton } from "@mui/material";
+
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary">
@@ -24,6 +25,7 @@ function Copyright() {
 const defaultTheme = createTheme();
 
 export default function StickyFooter() {
+  //add click handler route to setting
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />

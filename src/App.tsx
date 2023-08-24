@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingContainer from "./containers/LandingContainer";
 import GameContainer from "./containers/GameContainer";
 import ProgressContainer from "./containers/ProgressContainer";
-import SettingContainer from "./containers/SettingContainer";
+import ParentsModeContainer from "./containers/ParentsModeContainer";
 import StickyFooter from "./components/sticky-footer/StickyFooter";
 const App: React.FC = () => {
   return (
@@ -23,7 +23,7 @@ const App: React.FC = () => {
           }
         />
         <Route path="/progress" element={<ProgressContainer />} />
-        <Route path="/setting" element={<SettingContainer />} />
+        <Route path="/parentsMode" element={<ParentsModeContainer />} />
       </Routes>
       {StickyFooter()}
     </BrowserRouter>

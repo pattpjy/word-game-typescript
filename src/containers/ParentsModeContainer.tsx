@@ -1,4 +1,4 @@
-const SettingContainer = () => {
+const ParentsModeContainer = () => {
   return (
     <div>
       <h1>Welcome to the Setting Page</h1>
@@ -7,4 +7,4 @@ const SettingContainer = () => {
   );
 };
 
-export default SettingContainer;
+export default ParentsModeContainer;
