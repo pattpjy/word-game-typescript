@@ -5,11 +5,13 @@ import GameContainer from "./containers/GameContainer";
 import ProgressContainer from "./containers/ProgressContainer";
 import ParentsModeContainer from "./containers/ParentsModeContainer";
 import { StickyFooter } from "./components/sticky-footer/StickyFooter";
+import Auth from "./components/Login/auth";
 const App: React.FC = () => {
+  const childName = "Maddie";
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LandingContainer childName="Maddie" />} />
+        <Route path="/" element={<LandingContainer childName={childName} />} />
         <Route
           path="/game"
           element={
@@ -23,7 +25,11 @@ const App: React.FC = () => {
           }
         />
         <Route path="/progress" element={<ProgressContainer />} />
-        <Route path="/parentsMode" element={<ParentsModeContainer />} />
+        <Route
+          path="/parentsMode"
+          element={<ParentsModeContainer childName={childName} />}
+        />
+        <Route path="/login" element={<Auth />} />
       </Routes>
       <StickyFooter />
     </BrowserRouter>
